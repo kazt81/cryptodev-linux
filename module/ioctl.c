@@ -159,6 +159,18 @@ crypto_create_session(struct fcrypt *fcr, struct session_op *sop)
 		stream = 1;
 		aead = 1;
 		break;
+	case CRYPTO_AES_XTS:
+		alg_name = "xts(aes)";
+		break;
+	case CRYPTO_FIPS_AES_ECB:
+		alg_name = "ecb(fipsaes)";
+		break;
+	case CRYPTO_FIPS_AES_CBC:
+		alg_name = "cbc(fipsaes)";
+		break;
+	case CRYPTO_FIPS_AES_XTS:
+		alg_name = "xts(fipsaes)";
+		break;
 	case CRYPTO_NULL:
 		alg_name = "ecb(cipher_null)";
 		stream = 1;

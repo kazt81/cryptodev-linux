@@ -199,7 +199,7 @@ int cryptodev_cipher_init(struct cipher_data *out, const char *alg_name,
 		}
 
 		ablkcipher_request_set_callback(out->async.request,
-					CRYPTO_TFM_REQ_MAY_BACKLOG,
+					CRYPTO_TFM_REQ_MAY_BACKLOG | CRYPTO_TFM_REQ_MAY_SLEEP,
 					cryptodev_complete, out->async.result);
 	} else {
 		out->async.arequest = aead_request_alloc(out->async.as, GFP_KERNEL);
@@ -210,7 +210,7 @@ int cryptodev_cipher_init(struct cipher_data *out, const char *alg_name,
 		}
 
 		aead_request_set_callback(out->async.arequest,
-					CRYPTO_TFM_REQ_MAY_BACKLOG,
+					CRYPTO_TFM_REQ_MAY_BACKLOG | CRYPTO_TFM_REQ_MAY_SLEEP,
 					cryptodev_complete, out->async.result);
 	}
 

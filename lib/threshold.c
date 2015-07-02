@@ -15,11 +15,11 @@ void sha_hash(void* text, int size, void* digest)
 {
 SHA_CTX ctx;
 
-	SHA_Init(&ctx);
+	SHA1_Init(&ctx);
 
-	SHA_Update(&ctx, text, size);
+	SHA1_Update(&ctx, text, size);
 
-	SHA_Final(digest, &ctx);
+	SHA1_Final(digest, &ctx);
 }
 
 void aes_sha_combo(void* ctx, void* plaintext, void* ciphertext, int size, void* tag)
